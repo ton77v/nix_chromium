@@ -98,4 +98,5 @@ RUN chmod +x ./install_nix.sh && ./install_nix.sh pptruser && \
     nix-env --install chromium && \
     echo "Chromium has been installed | version: $(chromium --version)"
 
-CMD ["sh", "-c", "echo 'Chromium has been installed | version: $(chromium --version)' && tail -f /dev/null"]
+ENTRYPOINT ["sh", "-c"]
+CMD ["chromium --version && exec tail -f /dev/null"]
